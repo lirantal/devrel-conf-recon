@@ -1,4 +1,7 @@
 import { createTool } from '@mastra/core/tools';
+
+// A simple in-memory cache
+const cache = new Map<string, string>();
 import { z } from 'zod';
 
 export const webSearchTool = createTool({
@@ -11,12 +14,20 @@ export const webSearchTool = createTool({
     results: z.string(),
   }),
   execute: async ({ context }) => {
+    const { query } = context;
+
+    // Check the cache first
+    if (cache.has(query)) {
+      console.log('Returning cached results for:', query);
+      return { results: cache.get(query)! };
+    }
+
     const apiKey = process.env.JINA_AI_API_KEY;
     if (!apiKey) {
       throw new Error('JINA_AI_API_KEY environment variable is not set.');
     }
 
-    const url = `https://s.jina.ai/?q=${encodeURIComponent(context.query)}`;
+    const url = `https://s.jina.ai/?q=${encodeURIComponent(query)}`;
     const headers = {
       'Authorization': `Bearer ${apiKey}`,
       'X-Respond-With': 'no-content',
@@ -29,6 +40,9 @@ export const webSearchTool = createTool({
     }
 
     const results = await response.text();
+
+    // Store the result in the cache
+    cache.set(query, results);
 
     return {
       results,
