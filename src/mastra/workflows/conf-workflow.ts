@@ -58,7 +58,7 @@ const fetchConfSecurityTalks = createStep({
       throw new Error('No input data provided');
     }
 
-    const agent = mastra?.getAgent('webPageContentsTool');
+    const agent = mastra?.getAgent('webPageContentsAgent');
     if (!agent) {
       throw new Error('Agent not found');
     }
