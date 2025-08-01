@@ -2,7 +2,10 @@ import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
-import { webPageContentsTool } from '../tools/web-page-contents-tool';
+// import { webPageContentsTool } from '../tools/web-page-contents-tool';
+// use mock:
+import { webPageContentsTool } from '../tools/web-page-contents-tool.mock'; 
+
 
 export const webPageContentsAgent = new Agent({
   name: 'Web Page Contents Agent',
