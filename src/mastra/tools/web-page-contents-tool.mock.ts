@@ -1,7 +1,7 @@
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 
-export const mockWebPageContentsTool = createTool({
+export const webPageContentsTool = createTool({
   id: 'web-page-contents',
   description: 'A mock web page contents tool that returns canned results.',
   inputSchema: z.object({

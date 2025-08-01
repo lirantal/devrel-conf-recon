@@ -21,7 +21,7 @@ const searchConferenceWebsite = createStep({
       throw new Error('Agent not found');
     }
 
-    const prompt = `Based on the following conference name, run a web search to find the conference website`
+    const prompt = `Run a web search to find the conference website's page that contains the full agenda with full schedule for the event: ${inputData.conferenceName}`
 
     const response = await agent.stream([
       {
@@ -58,7 +58,7 @@ const fetchConfSecurityTalks = createStep({
       throw new Error('No input data provided');
     }
 
-    const agent = mastra?.getAgent('websearchAgent');
+    const agent = mastra?.getAgent('webPageContentsTool');
     if (!agent) {
       throw new Error('Agent not found');
     }

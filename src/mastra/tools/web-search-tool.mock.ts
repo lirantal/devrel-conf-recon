@@ -1,7 +1,7 @@
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 
-export const mockWebSearchTool = createTool({
+export const webSearchTool = createTool({
   id: 'web-search',
   description: 'A mock web search tool that returns canned results.',
   inputSchema: z.object({
