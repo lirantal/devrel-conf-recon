@@ -15,7 +15,7 @@ export const webSearchTool = createTool({
     console.log('Returning mock results for:', query);
 
     // Return some predefined mock data
-    if (query === 'NodeTLV' || query === 'NodeTLV Israel conference agenda full schedule') {
+    if (query.toLocaleLowerCase().startsWith('nodetlv')) {
       return {
         results: `
 [1] Title: NodeTLV Conference - NodeTLV
