@@ -1,4 +1,8 @@
 {
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
   "name": "devrel-conf-recon",
   "version": "1.0.0",
   "description": "",
