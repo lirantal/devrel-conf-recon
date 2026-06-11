@@ -1,8 +1,4 @@
 {
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
-  },
   "name": "devrel-conf-recon",
   "version": "1.0.0",
   "description": "",
@@ -32,5 +28,9 @@
     "@types/node": "^24.1.0",
     "mastra": "^0.10.16",
     "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
